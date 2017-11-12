@@ -1,0 +1,8 @@
+Package: deploy-worker
+Version: 1.0.0
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: Flavio De Stefano <destefano.flavio@gmail.com>
+Description: Simple worker that watch a file and execute scripts; 
+  used (for example) to deploy projects via HTTP

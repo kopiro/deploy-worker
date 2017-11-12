@@ -1,0 +1,16 @@
+#!/bin/bash
+QUEUE_FILE=/etc/deploy-queue.txt
+while (true); do
+	p=$(head $QUEUE_FILE)
+	tail -n +2 $QUEUE_FILE > $QUEUE_FILE
+
+	if [ ! -z $p ]; then
+		h=$(getent passwd $p | cut -d: -f6)
+		if [ -d $h ]; then
+			pushd $h
+			./deploy.sh
+			popd
+		fi
+	fi
+	sleep 5
+done
